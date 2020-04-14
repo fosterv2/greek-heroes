@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   root 'users#home'
+  get '/welcome', to: 'sessions#welcome'
+  get '/about', to: 'sessions#about'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
   resources :battles, only: [:new, :create]
-  resources :heros
+  resources :heroes
   resources :monsters
   resources :users
   resources :gods, only: [:index, :show]

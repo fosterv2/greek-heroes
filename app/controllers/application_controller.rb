@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
     end
 
     def require_logged_in
-        return redirect_to('/login') unless logged_in?
+        return redirect_to('/welcome') unless logged_in?
     end
 end

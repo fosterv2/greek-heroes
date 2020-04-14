@@ -1,4 +1,13 @@
 class SessionsController < ApplicationController
+    def welcome
+        if logged_in?
+            redirect_to '/'
+        end
+    end
+
+    def about
+    end
+
     def new
         @user = User.new
     end

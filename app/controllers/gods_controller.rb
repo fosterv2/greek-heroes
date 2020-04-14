@@ -1,4 +1,6 @@
 class GodsController < ApplicationController
+    before_action :require_logged_in
+    
     def index
         @gods = God.all
     end

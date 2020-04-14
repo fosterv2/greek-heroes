@@ -1,5 +1,6 @@
-class HerosController < ApplicationController
+class HeroesController < ApplicationController
     before_action :set_hero, only: [:show, :edit, :update]
+    before_action :require_logged_in
 
     def index
         @heroes = Hero.all

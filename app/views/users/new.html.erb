@@ -1,12 +1,13 @@
 <%= form_for @user, controller: 'users', action: 'create' do |f| %>
     <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username %><br>
   
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password %><br>
   
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %><br>
   
-    <%= f.submit "create account" %>
+    <%= f.submit "create account" %><br>
+    Or <%= link_to(controller: 'sessions', action: 'new') { 'login' } %>
 <% end %>
