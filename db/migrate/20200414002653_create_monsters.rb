@@ -3,6 +3,7 @@ class CreateMonsters < ActiveRecord::Migration[6.0]
     create_table :monsters do |t|
       t.string :name
       t.string :animal_trait
+      t.boolean :alive
 
       t.timestamps
     end
