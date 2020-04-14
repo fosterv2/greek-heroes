@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :battles
+  resources :battles, only: [:new, :create]
   resources :heros
   resources :monsters
   resources :users
-  resources :gods
+  resources :gods, only: [:index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
