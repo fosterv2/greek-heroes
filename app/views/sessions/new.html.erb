@@ -1,8 +1,10 @@
-<%= form_for @user, controller: 'sessions', action: 'create' do |f| %>
-    <%= f.label :username %>
+<%= flash[:messages] %>
+
+<%= form_for :sessions do |f| %>
+    Username: 
     <%= f.text_field :username %><br>
   
-    <%= f.label :password %>
+    Password: 
     <%= f.password_field :password %><br>
   
     <%= f.submit "login" %><br>

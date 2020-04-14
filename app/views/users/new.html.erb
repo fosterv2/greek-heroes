@@ -1,4 +1,9 @@
-<%= form_for @user, controller: 'users', action: 'create' do |f| %>
+<%= flash[:messages] %>
+
+<%= form_for @user, 'controller: 'users', action: 'create'' do |f| %>
+    <%= f.label :full_name %>
+    <%= f.text_field :full_name %><br>
+
     <%= f.label :username %>
     <%= f.text_field :username %><br>
   

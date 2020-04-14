@@ -14,6 +14,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to '/'
         else
+            flash[:messages] = "Error!"
             redirect_to new_user_path
         end
     end
