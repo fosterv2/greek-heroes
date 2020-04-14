@@ -1,0 +1,11 @@
+<%= form_for @hero do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <%= f.label :affinity %>
+    <%= f.text_field %>
+    <%= f.label :god %>
+    <%= f.collection_select :god_id, God.all, :id, :name %>
+    <%= f.submit %>
+<% end %>

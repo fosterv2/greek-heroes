@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
+  post '/heroes/:id/generate', to: 'heroes#generate', as: 'generate_hero'
   resources :battles, only: [:new, :create]
   resources :heroes
   resources :monsters
