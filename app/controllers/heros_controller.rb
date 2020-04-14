@@ -1,4 +1,4 @@
-class HeroesController < ApplicationController
+class HerosController < ApplicationController
     before_action :set_hero, only: [:show, :edit, :update]
 
     def index
