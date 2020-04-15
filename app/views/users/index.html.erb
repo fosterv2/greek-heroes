@@ -1,8 +1,15 @@
-<h1>All the Gods</h1>
-<ul>
-    <% @gods.each do |god| %>
-        <li>
-            <%= link_to god.name, god_path(god) %>
-        </li>
-    <% end %>
-</ul>
+<h1>All Other Users</h1>
+<% @users.each_with_index do |user, index| %>
+    <h3>Username: <%= user.username %></h3>
+    Rank: <%= index + 1 %><br>
+    Heroes:
+    <ul>
+        <% Hero.living_heroes(user).each do |hero| %>
+            <li>
+                Name: <%= hero.name %>, Monsters Defeated: <%= hero.monsters.count %>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<p>Rank is determined by the average monsters defeated of all of the user's living heroes</p>

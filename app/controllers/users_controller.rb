@@ -4,6 +4,10 @@ class UsersController < ApplicationController
         current_user
     end
 
+    def index
+        @users = User.rank_users
+    end
+
     def new
         @user = User.new
     end

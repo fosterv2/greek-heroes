@@ -1,6 +1,17 @@
 <h1>All Your Heroes</h1>
+
+<h3>Living:</h3>
 <ul>
-    <% @heroes.each do |hero| %>
+    <% @living_heroes.each do |hero| %>
+        <li>
+            <%= link_to hero.name, hero_path(hero) %>
+        </li>
+    <% end %>
+</ul>
+
+<h3>Defeated:</h3>
+<ul>
+    <% @dead_heroes.each do |hero| %>
         <li>
             <%= link_to hero.name, hero_path(hero) %>
         </li>

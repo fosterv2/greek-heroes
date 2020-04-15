@@ -13,7 +13,7 @@ class BattlesController < ApplicationController
         if cookies[:hero_id]
             @hero = Hero.find(cookies[:hero_id])
         else
-            @heroes = Hero.user_heroes(current_user)
+            @heroes = Hero.living_heroes(current_user)
         end
     end
 

@@ -8,7 +8,8 @@ class HeroesController < ApplicationController
     end
 
     def index
-        @heroes = Hero.user_heroes(current_user)
+        @living_heroes = Hero.living_heroes(current_user)
+        @dead_heroes = Hero.dead_heroes(current_user)
     end
 
     def show

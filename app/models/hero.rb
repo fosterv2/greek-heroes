@@ -4,8 +4,12 @@ class Hero < ApplicationRecord
     has_many :battles
     has_many :monsters, through: :battles
 
-    def self.user_heroes(user)
+    def self.living_heroes(user)
         self.all.select { |hero| hero.user == user && hero.alive }
+    end
+
+    def self.dead_heroes(user)
+        self.all.select { |hero| hero.user == user && !hero.alive }
     end
 
     def self.generate_hero(user)
@@ -18,5 +22,14 @@ class Hero < ApplicationRecord
             god: god,
             user: user
         )
+    end
+
+    def self.win_average(heroes)
+        if heroes.count > 0
+            wins = heroes.map { |hero| hero.monsters.count }
+            wins.sum(0.0) / wins.length
+        else
+            0.0
+        end
     end
 end
