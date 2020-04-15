@@ -69,10 +69,21 @@ end
 end
 
 7.times do
+    monsters = Monster.all.select { |monster| !monster.alive }
+    heroes = Hero.all.select { |hero| hero.alive }
     Battle.create(
         location: Faker::Games::LeagueOfLegends.location,
-        hero: Hero.all.sample,
-        monster: Monster.all.sample
+        hero: heroes.sample,
+        monster: monsters.sample
+    )
+end
+
+3.times do
+    heroes = Hero.all.select { |hero| !hero.alive }
+    Battle.create(
+        location: Faker::Games::LeagueOfLegends.location,
+        hero: heroes.sample,
+        monster: Monster.all_living.sample
     )
 end
 

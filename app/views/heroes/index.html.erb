@@ -2,19 +2,27 @@
 
 <h3>Living:</h3>
 <ul>
-    <% @living_heroes.each do |hero| %>
-        <li>
-            <%= link_to hero.name, hero_path(hero) %>
-        </li>
+    <% if @living_heroes.count > 0 %>
+        <% @living_heroes.each do |hero| %>
+            <li>
+                <%= link_to hero.name, hero_path(hero) %>
+            </li>
+        <% end %>
+    <% else %>
+        None
     <% end %>
 </ul>
 
 <h3>Defeated:</h3>
 <ul>
-    <% @dead_heroes.each do |hero| %>
-        <li>
-            <%= link_to hero.name, hero_path(hero) %>
-        </li>
+    <% if @dead_heroes.count > 0 %>
+        <% @dead_heroes.each do |hero| %>
+            <li>
+                <%= link_to hero.name, hero_path(hero) %>
+            </li>
+        <% end %>
+    <% else %>
+        None
     <% end %>
 </ul>
 

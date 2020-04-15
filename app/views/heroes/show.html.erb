@@ -15,11 +15,19 @@
 <% else %>
     <ul>
     <% @hero.monsters.each do |monster| %>
-        <li><%= monster.name %></li>
+        <li><%= link_to monster.name, monster %></li>
     <% end %>
     </ul>
-<% end %><br>
+<% end %>
+
+<h3>Living:</h3>
+<%= @hero.alive %><br>
 <br>
 
-<%= button_to "Battle a Monster", new_battle_path, method: :get %><br>
+<% if @hero.alive %>
+    <%= button_to "Battle a Monster", new_battle_path, method: :get %><br>
+<% end %>
+
+<%= button_to "Delete Hero", hero_path(@hero), method: :delete %><br>
+
 <%= link_to "Edit Hero", edit_hero_path(@hero) %>

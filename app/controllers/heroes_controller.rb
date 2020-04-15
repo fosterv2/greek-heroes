@@ -1,5 +1,5 @@
 class HeroesController < ApplicationController
-    before_action :set_hero, only: [:show, :edit, :update]
+    before_action :set_hero, only: [:show, :edit, :update, :destroy]
     before_action :require_logged_in
 
     def generate
@@ -22,6 +22,7 @@ class HeroesController < ApplicationController
     def create
         @hero = Hero.new(hero_params)
         @hero.user = current_user
+        @hero.alive = true
         if @hero.save
             redirect_to @hero
         else
@@ -44,7 +45,7 @@ class HeroesController < ApplicationController
 
     def destroy
         @hero.destroy
-        redirect_to heros_path
+        redirect_to heroes_path
     end
 
     private
