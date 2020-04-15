@@ -4,14 +4,14 @@ class Hero < ApplicationRecord
     has_many :battles
     has_many :monsters, through: :battles
 
-    def self.generate_hero
+    def self.generate_hero(user_id)
         god = God.all.sample
         self.create(
             name: Faker::Ancient.hero,
             age: rand(16..30),
             affinity: god.affinity,
             god: god,
-            user: User.all.sample
+            user_id: user_id
         )
     end
 end

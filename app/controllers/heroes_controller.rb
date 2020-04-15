@@ -3,7 +3,7 @@ class HeroesController < ApplicationController
     before_action :require_logged_in
 
     def generate
-        @hero = Hero.generate_hero
+        @hero = Hero.generate_hero(current_user.id)
         redirect_to @hero
     end
 
@@ -20,6 +20,7 @@ class HeroesController < ApplicationController
 
     def create
         @hero = Hero.new(hero_params)
+        @hero.user = current_user
         if @hero.save
             redirect_to @hero
         else
@@ -52,6 +53,6 @@ class HeroesController < ApplicationController
     end
 
     def hero_params
-        params.require(:hero).permit(:name, :age, :power, :god_id, :user_id)
+        params.require(:hero).permit(:name, :age, :affinity, :god_id, :user_id)
     end
 end

@@ -1,2 +1,12 @@
 <h2>Edit Your Hero</h2>
-<%= render 'form' %>
+<%= form_for @hero, url: "/heroes/#{@hero.id}" do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :age %>
+    <%= f.number_field :age %><br>
+    <%= f.label :affinity %>
+    <%= f.text_field :affinity %><br>
+    <%= f.label :god %>
+    <%= f.collection_select :god_id, God.all, :id, :name %><br>
+    <%= f.submit %>
+<% end %>
