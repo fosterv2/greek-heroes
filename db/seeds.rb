@@ -12,6 +12,8 @@ User.destroy_all
 Hero.destroy_all
 Battle.destroy_all
 
+BOOLE = [true, false]
+
 God.create(name: "Zeus", affinity: "Lightning",
                 img_url: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/53653317-d541-48a0-8252-bc533c980e00/ddtzwmv-02a51cf7-80b8-494b-b8f1-f7609aeddb58.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzUzNjUzMzE3LWQ1NDEtNDhhMC04MjUyLWJjNTMzYzk4MGUwMFwvZGR0endtdi0wMmE1MWNmNy04MGI4LTQ5NGItYjhmMS1mNzYwOWFlZGRiNTgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Nn1NLK8Mr5xYJRJFj-vYAfGaos3v43fIUynJHe-OWgA")
 God.create(name: "Hera", affinity: "Marriage",
@@ -37,12 +39,11 @@ God.create(name: "Hermes", affinity: "Travel",
 God.create(name: "Demeter", affinity: "Earth",
                 img_url: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/53653317-d541-48a0-8252-bc533c980e00/ddsykgn-712f66bf-8dd3-4903-bd1d-eecce350f66b.png/v1/fill/w_600,h_816,strp/demeter___greek_mythology_by_yliade_ddsykgn-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODE2IiwicGF0aCI6IlwvZlwvNTM2NTMzMTctZDU0MS00OGEwLTgyNTItYmM1MzNjOTgwZTAwXC9kZHN5a2duLTcxMmY2NmJmLThkZDMtNDkwMy1iZDFkLWVlY2NlMzUwZjY2Yi5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.vhf105lzwoTLQleZ641hcf4pHTUbvUAO-I0WBkWNrjs")
 
-boole = [true, false]
 10.times do
     Monster.create(
         name: Faker::Games::Witcher.monster,
         animal_trait: Faker::Creature::Animal.name,
-        alive: boole.sample
+        alive: BOOLE.sample
     )
 end
 
@@ -61,6 +62,7 @@ end
         name: Faker::Ancient.hero,
         age: rand(16..30),
         affinity: god.affinity,
+        alive: BOOLE.sample,
         god: god,
         user: User.all.sample
     )

@@ -1,0 +1,22 @@
+<h1>The Battle</h1>
+
+<h3>Location:</h3>
+<%= @battle.location %>
+
+<h3>Monster:</h3>
+<%= @monster.name %>: 
+<% if @monster.alive %>
+    The winner
+<% else %>
+    Defeated
+<% end %>
+
+<h3>Hero:</h3>
+<%= @hero.name %>: 
+<% if @hero.alive %>
+    The winner
+<% else %>
+    Defeated
+<% end %><br>
+<br>
+<%= link_to "Home", '/' %>

@@ -1,0 +1,18 @@
+<h1>A New Battle!</h1>
+
+<%= form_for @battle do |f| %>
+    <%= f.label :location %>
+    <%= f.text_field :location %><br>
+
+    <%= f.label :monster %>
+    <%= f.collection_select :monster_id, @monsters, :id, :name %><br>
+
+    <% if @hero %>
+        Hero: <%= @hero.name %>
+    <% else %>
+        <%= f.label :hero %>
+        <%= f.collection_select :hero_id, @heroes, :id, :name %><br>
+    <% end %>
+
+    <%= f.submit "Battle" %>
+<% end %>

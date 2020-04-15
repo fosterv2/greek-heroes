@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   post '/heroes/new/generate', to: 'heroes#generate', as: 'generate_hero'
-  resources :battles, only: [:new, :create]
+  resources :battles, only: [:new, :create, :show]
   resources :heroes
   resources :monsters
   resources :users
