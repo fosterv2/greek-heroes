@@ -3,12 +3,12 @@ class HeroesController < ApplicationController
     before_action :require_logged_in
 
     def generate
-        @hero = Hero.generate_hero(current_user.id)
+        @hero = Hero.generate_hero(current_user)
         redirect_to @hero
     end
 
     def index
-        @heroes = Hero.all
+        @heroes = Hero.user_heroes(current_user)
     end
 
     def show

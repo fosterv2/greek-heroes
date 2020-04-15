@@ -10,6 +10,16 @@
 <%= @hero.god.name %>
 
 <h3>Monsters defeated:</h3>
-<%= @hero.monsters.count %><br>
+<% if @hero.monsters.count == 0 %>
+    None
+<% else %>
+    <ul>
+    <%= @hero.monsters.each do |monster| %>
+        <li><%= monster.name %></li>
+    <% end %>
+    </ul>
+<% end %><br>
 <br>
+
+<% button_to "Battle a Monster", new_battle_path, method: :get %>
 <%= link_to "Edit Hero", edit_hero_path(@hero) %>
