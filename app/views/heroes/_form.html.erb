@@ -1,11 +1,11 @@
-<%= form_for @hero do |f| %>
+<%= form_for @hero, url: heroes_path do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br>
     <%= f.label :age %>
-    <%= f.number_field :age %>
+    <%= f.number_field :age %><br>
     <%= f.label :affinity %>
-    <%= f.text_field %>
+    <%= f.text_field :affinity %><br>
     <%= f.label :god %>
-    <%= f.collection_select :god_id, God.all, :id, :name %>
+    <%= f.collection_select :god_id, God.all, :id, :name %><br>
     <%= f.submit %>
 <% end %>

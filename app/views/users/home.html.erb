@@ -1,2 +1,9 @@
 <h1>Welcome <%= @user.full_name %>!</h1>
+
+<h3>See your <%= link_to "Heroes", heroes_path %></h3>
+<h3>See full list of <%= link_to "Gods", gods_path %></h3>
+<h3>Create a <%= link_to "new Hero", new_hero_path %></h3>
+<h3>Start a Battle</h3>
+<h3>See other User's Heroes</h3>
+
 <%= button_to "logout", logout_path, method: :post %>

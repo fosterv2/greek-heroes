@@ -2,6 +2,11 @@ class HeroesController < ApplicationController
     before_action :set_hero, only: [:show, :edit, :update]
     before_action :require_logged_in
 
+    def generate
+        @hero = Hero.generate_hero
+        redirect_to @hero
+    end
+
     def index
         @heroes = Hero.all
     end

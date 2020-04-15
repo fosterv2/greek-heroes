@@ -43,15 +43,16 @@ boole = [true, false]
         name: Faker::Games::Witcher.monster,
         animal_trait: Faker::Creature::Animal.name,
         alive: boole.sample
-        )
+    )
 end
 
 5.times do
     name = Faker::Name.name
     User.create(
         full_name: name,
-        username: Faker::Internet.username(specifier: name, separators: %w(. _ -))
-        )
+        username: Faker::Internet.username(specifier: name, separators: %w(. _ -)),
+        password: Faker::Internet.password
+    )
 end
 
 10.times do
@@ -62,7 +63,7 @@ end
         affinity: god.affinity,
         god: god,
         user: User.all.sample
-        )
+    )
 end
 
 7.times do
@@ -72,3 +73,5 @@ end
         monster: Monster.all.sample
     )
 end
+
+puts "SUCCESS!"
