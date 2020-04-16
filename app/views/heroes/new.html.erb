@@ -5,8 +5,9 @@
 
 <%= form_for @hero, url: heroes_path do |f| %>
     <%= render partial: 'form', locals: { f: f } %>
-    <%= f.submit "Create Hero" %>
+    <%= f.submit "Create" %>
 <% end %>
 <br>
 Or <%= button_to "auto-generate a new hero", generate_hero_path, method: :post %>
 </div>
+<br>

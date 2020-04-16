@@ -1,17 +1,17 @@
 <div>
-<h1>All Other Users</h1>
+<h1>Ranking of All Users</h1>
+
 <% @users.each_with_index do |user, index| %>
     <h3>Username: <%= user.username %></h3>
     Rank: <%= index + 1 %><br>
     Heroes:
-    <ul>
+    <ul class="list-inline text-center">
         <% Hero.living_heroes(user).each do |hero| %>
-            <li>
+            <li class="list-inline-item">
                 Name: <%= hero.name %>, Monsters Defeated: <%= hero.monsters.count %>
             </li>
         <% end %>
     </ul>
 <% end %>
-<br>
-<p>* Rank is determined by the average monsters defeated of all of the user's living heroes</p>
 </div>
+<br>

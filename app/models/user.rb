@@ -6,6 +6,6 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
 
     def self.rank_users
-        self.all.sort_by { |user| Hero.win_average(Hero.living_heroes(user)) }.reverse
+        self.all.sort_by { |user| Hero.best_hero_wins(Hero.living_heroes(user)) }.reverse
     end
 end

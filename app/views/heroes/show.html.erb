@@ -2,13 +2,13 @@
 <h1><%= @hero.name %></h1>
 
 <h3>Age:</h3>
-<%= @hero.age %>
+<%= @hero.age %><br>
 
 <h3>Affinity:</h3>
-<%= @hero.affinity %>
+<%= @hero.affinity %><br>
 
 <h3>Godly Parent:</h3>
-<%= @hero.god.name %>
+<%= @hero.god.name %><br>
 
 <h3>Monsters defeated:</h3>
 <% if @hero.monsters.count == 0 %>
@@ -28,10 +28,14 @@
 <br>
 
 <% if @hero.alive %>
-    <%= button_to "Battle a Monster", new_battle_path, method: :get %><br>
+    <%= form_for :battle, url: new_battle_path, method: :get do |f| %>
+        <%= f.hidden_field hero_id: @hero.id %>
+        <%= f.submit %>
+    <% end %>
 <% end %>
 
 <%= button_to "Delete Hero", hero_path(@hero), method: :delete %><br>
 
-<%= link_to "Edit Hero", edit_hero_path(@hero) %>
+<%= button_to "Edit Hero", edit_hero_path(@hero), method: :get %>
 </div>
+<br>

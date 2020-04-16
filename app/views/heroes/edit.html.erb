@@ -5,6 +5,7 @@
 
 <%= form_for @hero, url: "/heroes/#{@hero.id}" do |f| %>
     <%= render partial: 'form', locals: { f: f } %>
-    <%= f.submit "Update Hero" %>
+    <%= f.submit "Update" %>
 <% end %>
 </div>
+<br>

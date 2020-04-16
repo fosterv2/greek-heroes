@@ -23,6 +23,7 @@ class HeroesController < ApplicationController
         @hero = Hero.new(hero_params)
         @hero.user = current_user
         @hero.alive = true
+        @hero.affinity = @hero.god.affinity
         if @hero.save
             redirect_to @hero
         else
@@ -55,6 +56,6 @@ class HeroesController < ApplicationController
     end
 
     def hero_params
-        params.require(:hero).permit(:name, :age, :affinity, :god_id, :user_id)
+        params.require(:hero).permit(:name, :age, :god_id)
     end
 end

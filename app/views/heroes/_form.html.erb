@@ -7,10 +7,6 @@
 <%= f.number_field :age %>
 </div><br>
 <div>
-<%= f.label :affinity %>
-<%= f.text_field :affinity %>
-</div><br>
-<div>
 <%= f.label "God: " %>
 <%= f.collection_select :god_id, God.all, :id, :name %>
 </div><br>

@@ -7,7 +7,9 @@ class BattlesController < ApplicationController
         @monster = @battle.monster
     end
 
+#<%= button_to "Battle a Monster", new_battle_path, method: :get %><br>
     def new
+        byebug
         @battle = Battle.new
         @monsters = Monster.all_living
         if cookies[:hero_id]

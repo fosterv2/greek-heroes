@@ -27,12 +27,11 @@ class Hero < ApplicationRecord
         )
     end
 
-    def self.win_average(heroes)
+    def self.best_hero_wins(heroes)
         if heroes.count > 0
-            wins = heroes.map { |hero| hero.monsters.count }
-            wins.sum(0.0) / wins.length
+            heroes.max_by { |hero| hero.monsters.count }.monsters.count
         else
-            0.0
+            -1
         end
     end
 end
