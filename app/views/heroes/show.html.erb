@@ -1,3 +1,4 @@
+<div>
 <h1><%= @hero.name %></h1>
 
 <h3>Age:</h3>
@@ -13,9 +14,11 @@
 <% if @hero.monsters.count == 0 %>
     None
 <% else %>
-    <ul>
+    <ul class="list-inline text-center">
     <% @hero.monsters.each do |monster| %>
-        <li><%= link_to monster.name, monster %></li>
+        <li class="list-inline-item">
+            <%= link_to monster.name, monster %>
+        </li>
     <% end %>
     </ul>
 <% end %>
@@ -31,3 +34,4 @@
 <%= button_to "Delete Hero", hero_path(@hero), method: :delete %><br>
 
 <%= link_to "Edit Hero", edit_hero_path(@hero) %>
+</div>

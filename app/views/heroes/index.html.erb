@@ -1,10 +1,11 @@
+<div>
 <h1>All Your Heroes</h1>
 
 <h3>Living:</h3>
-<ul>
+<ul class="list-inline text-center">
     <% if @living_heroes.count > 0 %>
         <% @living_heroes.each do |hero| %>
-            <li>
+            <li class="list-inline-item">
                 <%= link_to hero.name, hero_path(hero) %>
             </li>
         <% end %>
@@ -14,10 +15,10 @@
 </ul>
 
 <h3>Defeated:</h3>
-<ul>
+<ul class="list-inline text-center">
     <% if @dead_heroes.count > 0 %>
         <% @dead_heroes.each do |hero| %>
-            <li>
+            <li class="list-inline-item">
                 <%= link_to hero.name, hero_path(hero) %>
             </li>
         <% end %>
@@ -27,3 +28,4 @@
 </ul>
 
 <%= link_to "Create new Hero", new_hero_path %>
+</div>

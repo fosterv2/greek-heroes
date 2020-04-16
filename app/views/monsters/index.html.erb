@@ -1,8 +1,10 @@
+<div>
 <h1>All the Monsters</h1>
-<ul>
+<ul class="list-inline text-center">
     <% @monsters.each do |monster| %>
-        <li>
+        <li class="list-inline-item">
             <%= link_to monster.name, monster_path(monster) %>
         </li>
     <% end %>
 </ul>
+</div>

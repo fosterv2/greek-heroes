@@ -1,8 +1,10 @@
+<div>
 <h1>All the Gods</h1>
-<ul>
+<ul class="list-inline text-center">
     <% @gods.each do |god| %>
-        <li>
+        <li class="list-inline-item">
             <%= link_to god.name, god_path(god) %>
         </li>
     <% end %>
 </ul>
+</div>

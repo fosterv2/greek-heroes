@@ -39,7 +39,7 @@ class HeroesController < ApplicationController
             redirect_to @hero
         else
             flash[:messages] = @hero.errors.full_messages
-            redirect_to edit_hero_path
+            redirect_to edit_hero_path(@hero)
         end
     end
 
