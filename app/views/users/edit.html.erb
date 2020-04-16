@@ -1,18 +1,17 @@
 <%= render 'layouts/flash' %>
 
-<%= form_for @user, controller: 'users', action: 'create' do |f| %>
+<%= form_for current_user do |f| %>
     <%= f.label :full_name %>
     <%= f.text_field :full_name %><br>
 
     <%= f.label :username %>
     <%= f.text_field :username %><br>
-  
+
     <%= f.label :password %>
     <%= f.password_field :password %><br>
-  
+
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %><br>
-  
-    <%= f.submit "create account" %><br>
-    Or <%= link_to(controller: 'sessions', action: 'new') { 'login' } %>
+
+    <%= f.submit %>
 <% end %>

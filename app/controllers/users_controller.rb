@@ -19,7 +19,20 @@ class UsersController < ApplicationController
             redirect_to '/'
         else
             flash[:messages] = "Error!"
-            redirect_to new_user_path
+            # redirect_to new_user_path
+            render :new
+        end
+    end
+
+    def edit
+    end
+
+    def update
+        if current_user.update(user_params)
+            redirect_to '/'
+        else
+            flash[:messages] = "Error!"
+            render :edit
         end
     end
      

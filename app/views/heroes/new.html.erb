@@ -1,3 +1,7 @@
 <h2>Create a New Hero</h2>
+
+<%= render 'layouts/flash' %>
+
 <%= render 'form' %>
+
 Or <%= button_to "auto-generate a new hero", generate_hero_path, method: :post %>

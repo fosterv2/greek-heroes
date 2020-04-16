@@ -1,4 +1,7 @@
 <h2>Edit Your Hero</h2>
+
+<%= render 'layouts/flash' %>
+
 <%= form_for @hero, url: "/heroes/#{@hero.id}" do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>

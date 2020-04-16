@@ -12,4 +12,22 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
+
+ nav {
+     background-color: aquamarine;
+     font-family: fantasy;
+     font-size: 22px;
+ }
+
+ body {
+    background-color: lightblue !important;
+    font-family: fantasy !important;
+ }
+
+ img#welcome {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
