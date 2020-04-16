@@ -26,8 +26,8 @@ class HeroesController < ApplicationController
         if @hero.save
             redirect_to @hero
         else
-            flash[:messages] = "Errors!"
-            render :new
+            flash[:messages] = @hero.errors.full_messages
+            redirect_to new_hero_path
         end
     end
 
@@ -38,8 +38,8 @@ class HeroesController < ApplicationController
         if @hero.update(hero_params)
             redirect_to @hero
         else
-            flash[:messages] = "Errors!"
-            render :new
+            flash[:messages] = @hero.errors.full_messages
+            redirect_to edit_hero_path
         end
     end
 

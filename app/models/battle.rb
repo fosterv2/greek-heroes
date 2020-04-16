@@ -3,7 +3,7 @@ class Battle < ApplicationRecord
     belongs_to :monster
 
     def decide_winner
-        num = [1, 1, 1, 2].sample
+        num = [1, 1, 1, 1, 2].sample
         if num == 1
             self.monster.update(alive: false)
         else

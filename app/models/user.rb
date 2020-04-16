@@ -2,6 +2,9 @@ class User < ApplicationRecord
     has_many :heros
     has_secure_password
 
+    validates :full_name, :username, presence: true
+    validates :username, uniqueness: true
+
     def self.rank_users
         self.all.sort_by { |user| Hero.win_average(Hero.living_heroes(user)) }.reverse
     end

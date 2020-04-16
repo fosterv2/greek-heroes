@@ -23,9 +23,9 @@ class BattlesController < ApplicationController
             @battle.decide_winner
             redirect_to @battle
         else
-            flash[:messages] = "Errors!"
+            flash[:messages] = @battle.errors.full_messages
             @monsters = Monster.all_living
-            render :new
+            redirect_to new_battle_path
         end
     end
 

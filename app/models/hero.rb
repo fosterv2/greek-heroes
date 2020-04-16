@@ -4,6 +4,9 @@ class Hero < ApplicationRecord
     has_many :battles
     has_many :monsters, through: :battles
 
+    validates :name, :alive, presence: true
+    validates :age, numericality: { greater_than: 10 }
+
     def self.living_heroes(user)
         self.all.select { |hero| hero.user == user && hero.alive }
     end
