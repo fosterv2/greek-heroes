@@ -4,7 +4,9 @@
 <h3>Animal Trait:</h3>
 <%= @monster.animal_trait %>
 
-<h3>Defeated By:</h3>
-<%= @monster.heros.last.name %>
+<% if !@monster.alive %>
+    <h3>Defeated By:</h3>
+    <%= @monster.heros.last.name %>
+<% end %>
 </div>
 <br>

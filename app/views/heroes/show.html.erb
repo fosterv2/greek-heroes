@@ -10,7 +10,7 @@
 <br>
 
 <h3>Godly Parent:</h3>
-<%= @hero.god.name %><br>
+<%= link_to @hero.god.name, @hero.god %><br>
 <br>
 
 <h3>Monsters defeated:</h3>
@@ -33,7 +33,7 @@
 
 <% if !@hero.alive %>
     <h3>Defeated By:</h3>
-    <%= @hero.monsters.last.name %><br>
+    <%= link_to @hero.monsters.last.name, @hero.monsters.last %><br>
     <br>
 <% end %>
 

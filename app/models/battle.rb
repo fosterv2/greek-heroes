@@ -6,7 +6,7 @@ class Battle < ApplicationRecord
         num = [1, 1, 1, 2].sample
         if num == 1
             self.monster.update(alive: false)
-        elsif num == 2
+        else
             self.hero.update(alive: false)
         end
         if Monster.all_living.count < 3

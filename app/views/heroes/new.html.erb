@@ -1,6 +1,7 @@
 <div>
 <h2>Create a New Hero</h2><br>
 
+<h4>Fill Out Form:</h4>
 <%= render 'layouts/flash' %>
 
 <%= form_for @hero, url: heroes_path do |f| %>
@@ -8,6 +9,7 @@
     <%= f.submit "Create" %>
 <% end %>
 <br>
-Or <%= button_to "Auto-Generate a New Hero", generate_hero_path, method: :post %>
+<h4>Or:</h4> 
+<%= button_to "Auto-Generate a New Hero", generate_hero_path, method: :post %>
 </div>
 <br>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/heroes/new/generate', to: 'heroes#generate', as: 'generate_hero'
   resources :battles, only: [:new, :create, :show]
   resources :heroes
-  resources :monsters
+  resources :monsters, only: [:index, :show]
   resources :users
   resources :gods, only: [:index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
