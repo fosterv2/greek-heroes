@@ -27,7 +27,7 @@
     </ul>
 <% end %><br>
 <br>
-<%= form_for @god, url: generate_hero_path, method: :get do |f| %>
+<%= form_for @god, url: generate_hero_path, method: :post do |f| %>
     <%= f.hidden_field :id %>
     <%= f.submit "Create a New Hero" %>
 <% end %><br>

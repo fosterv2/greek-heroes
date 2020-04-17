@@ -3,9 +3,8 @@ class HeroesController < ApplicationController
     before_action :require_logged_in
 
     def generate
-        byebug
-        if params[:hero]
-            @hero = Hero.generate_hero(user: current_user, god_id: params[:hero][:id])
+        if params[:god]
+            @hero = Hero.generate_hero(user: current_user, god_id: params[:god][:id])
         else
             @hero = Hero.generate_hero(user: current_user)
         end

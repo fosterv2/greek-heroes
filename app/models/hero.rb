@@ -26,15 +26,19 @@ class Hero < ApplicationRecord
         self.all.select { |hero| hero.user == user && !hero.alive }
     end
 
-    def self.generate_hero(user)
-        god = God.all.sample
+    def self.generate_hero(**args)
+        if args[:god_id]
+            god = God.find(args[:god_id])
+        else
+            god = God.all.sample
+        end
         self.create(
             name: Faker::Ancient.hero,
             age: rand(16..30),
             affinity: god.affinity,
             alive: true,
             god: god,
-            user: user
+            user: args[:user]
         )
     end
 
