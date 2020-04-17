@@ -7,5 +7,6 @@ class GodsController < ApplicationController
 
     def show
         @god = God.find(params[:id])
+        @heroes = @god.children
     end
 end

@@ -5,13 +5,17 @@
     <h3>Username: <%= user.username %></h3>
     Rank: <%= index + 1 %><br>
     Heroes:
-    <ul class="list-inline text-center">
-        <% Hero.living_heroes(user).each do |hero| %>
-            <li class="list-inline-item">
-                Name: <%= hero.name %>, Monsters Defeated: <%= hero.monsters.count %>
-            </li>
-        <% end %>
-    </ul>
+    <% if Hero.living_heroes(user).count == 0 %>
+        None
+    <% else %>
+        <ul class="list-inline text-center">
+            <% Hero.living_heroes(user).each do |hero| %>
+                <li class="list-inline-item">
+                    Name: <%= hero.name %>, Monsters Defeated: <%= hero.monsters.count %>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
 <% end %>
 </div>
 <br>

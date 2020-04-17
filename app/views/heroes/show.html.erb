@@ -30,6 +30,7 @@
 <% if !@hero.alive %>
     <h3>Defeated By:</h3>
     <%= @hero.monsters.last.name %><br>
+    <br>
 <% end %>
 
 <% if @hero.alive %>

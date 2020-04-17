@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_003041) do
   create_table "gods", force: :cascade do |t|
     t.string "name"
     t.string "affinity"
+    t.string "bio_link"
     t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -3,7 +3,12 @@ class HeroesController < ApplicationController
     before_action :require_logged_in
 
     def generate
-        @hero = Hero.generate_hero(current_user)
+        byebug
+        if params[:hero]
+            @hero = Hero.generate_hero(user: current_user, god_id: params[:hero][:id])
+        else
+            @hero = Hero.generate_hero(user: current_user)
+        end
         redirect_to @hero
     end
 

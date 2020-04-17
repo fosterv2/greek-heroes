@@ -3,8 +3,33 @@
 
 <%= image_tag(@god.img_url, height: '500') %><br>
 <br>
-<h3>Affinity:</h3>
-<%= @god.affinity %>
 
+<h3>Affinity:</h3>
+<%= @god.affinity %><br>
+<br>
+<h3>Bio:</h3>
+<%= link_to "About #{@god.name}", "#{@god.bio_link}" %><br>
+<br>
+<h3>Demigod Children</h3>
+<% if @heroes.count == 0 %>
+    None
+<% else %>
+    <ul class="list-inline text-center">
+    <% @heroes.each do |hero| %>
+        <li class="list-inline-item">
+        <% if hero.user == current_user %>
+            <%= link_to hero.name, hero %>
+        <% else %>
+            <%= hero.name %>
+        <% end %>
+        </li>
+    <% end %>
+    </ul>
+<% end %><br>
+<br>
+<%= form_for @god, url: generate_hero_path, method: :get do |f| %>
+    <%= f.hidden_field :id %>
+    <%= f.submit "Create a New Hero" %>
+<% end %><br>
 </div>
 <br>
