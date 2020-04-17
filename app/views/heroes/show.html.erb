@@ -11,11 +11,11 @@
 <%= @hero.god.name %><br>
 
 <h3>Monsters defeated:</h3>
-<% if @hero.monsters.count == 0 %>
+<% if @monsters.count == 0 %>
     None
 <% else %>
     <ul class="list-inline text-center">
-    <% @hero.monsters.each do |monster| %>
+    <% @monsters.each do |monster| %>
         <li class="list-inline-item">
             <%= link_to monster.name, monster %>
         </li>
@@ -27,12 +27,17 @@
 <%= @hero.alive %><br>
 <br>
 
+<% if !@hero.alive %>
+    <h3>Defeated By:</h3>
+    <%= @hero.monsters.last.name %>
+<% end %><br>
+
 <% if @hero.alive %>
-    <%= form_for :battle, url: new_battle_path, method: :get do |f| %>
-        <%= f.hidden_field hero_id: @hero.id %>
-        <%= f.submit %>
+    <%= form_for @hero, url: new_battle_path, method: :get do |f| %>
+        <%= f.hidden_field :id %>
+        <%= f.submit "Battle a Monster" %>
     <% end %>
-<% end %>
+<% end %><br>
 
 <%= button_to "Delete Hero", hero_path(@hero), method: :delete %><br>
 

@@ -7,6 +7,16 @@ class Hero < ApplicationRecord
     validates :name, :alive, presence: true
     validates :age, numericality: { greater_than: 10 }
 
+    def monsters_defeated
+        if self.alive
+            self.monsters
+        else
+            list = self.monsters.to_a
+            list.pop
+            list
+        end
+    end
+
     def self.living_heroes(user)
         self.all.select { |hero| hero.user == user && hero.alive }
     end

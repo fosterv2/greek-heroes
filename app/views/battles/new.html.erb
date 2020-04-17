@@ -4,18 +4,22 @@
 <%= render 'layouts/flash' %>
 
 <%= form_for @battle do |f| %>
-    <%= f.label :location %>
-    <%= f.text_field :location %><br>
-
-    <%= f.label :monster %>
-    <%= f.collection_select :monster_id, @monsters, :id, :name %><br>
-
     <% if @hero %>
-        Hero: <%= @hero.name %>
+        Hero: <%= @hero.name %><br>
     <% else %>
-        <%= f.label :hero %>
+        <%= f.label "Hero: " %>
         <%= f.collection_select :hero_id, @heroes, :id, :name %><br>
     <% end %>
+
+    <h5>Battles</h5>
+
+    <%= f.label "Monster: " %>
+    <%= f.collection_select :monster_id, @monsters, :id, :name %><br>
+
+    <h5>At</h5>
+
+    <%= f.label "Location: " %>
+    <%= f.text_field :location %><br>
 
     <%= f.submit "Battle" %>
 <% end %>

@@ -13,6 +13,7 @@ class HeroesController < ApplicationController
     end
 
     def show
+        @monsters = @hero.monsters_defeated
     end
     
     def new

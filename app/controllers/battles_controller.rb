@@ -7,13 +7,12 @@ class BattlesController < ApplicationController
         @monster = @battle.monster
     end
 
-#<%= button_to "Battle a Monster", new_battle_path, method: :get %><br>
     def new
-        byebug
         @battle = Battle.new
         @monsters = Monster.all_living
-        if cookies[:hero_id]
-            @hero = Hero.find(cookies[:hero_id])
+        if params[:hero]
+            @hero = Hero.find(params[:hero][:id])
+            flash[:hero_id] = @hero.id
         else
             @heroes = Hero.living_heroes(current_user)
         end
@@ -21,6 +20,9 @@ class BattlesController < ApplicationController
 
     def create
         @battle = Battle.new(battle_params)
+        if !@battle.hero
+            @battle.hero = Hero.find(flash[:hero_id])
+        end
         if @battle.save
             @battle.decide_winner
             redirect_to @battle
