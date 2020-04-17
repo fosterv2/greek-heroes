@@ -29,15 +29,15 @@
 
 <% if !@hero.alive %>
     <h3>Defeated By:</h3>
-    <%= @hero.monsters.last.name %>
-<% end %><br>
+    <%= @hero.monsters.last.name %><br>
+<% end %>
 
 <% if @hero.alive %>
     <%= form_for @hero, url: new_battle_path, method: :get do |f| %>
         <%= f.hidden_field :id %>
         <%= f.submit "Battle a Monster" %>
-    <% end %>
-<% end %><br>
+    <% end %><br>
+<% end %>
 
 <%= button_to "Delete Hero", hero_path(@hero), method: :delete %><br>
 

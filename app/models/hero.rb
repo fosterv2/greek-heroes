@@ -4,7 +4,7 @@ class Hero < ApplicationRecord
     has_many :battles
     has_many :monsters, through: :battles
 
-    validates :name, :alive, presence: true
+    validates :name, presence: true
     validates :age, numericality: { greater_than: 10 }
 
     def monsters_defeated
@@ -18,7 +18,8 @@ class Hero < ApplicationRecord
     end
 
     def self.living_heroes(user)
-        self.all.select { |hero| hero.user == user && hero.alive }
+        living = self.all.select { |hero| hero.user == user && hero.alive }
+        living.sort_by { |hero| hero.monsters_defeated.count }.reverse
     end
 
     def self.dead_heroes(user)
