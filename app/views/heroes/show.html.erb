@@ -3,12 +3,15 @@
 
 <h3>Age:</h3>
 <%= @hero.age %><br>
+<br>
 
 <h3>Affinity:</h3>
 <%= @hero.affinity %><br>
+<br>
 
 <h3>Godly Parent:</h3>
 <%= @hero.god.name %><br>
+<br>
 
 <h3>Monsters defeated:</h3>
 <% if @monsters.count == 0 %>
@@ -21,7 +24,8 @@
         </li>
     <% end %>
     </ul>
-<% end %>
+<% end %><br>
+<br>
 
 <h3>Living:</h3>
 <%= @hero.alive %><br>
